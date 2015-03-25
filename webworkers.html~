@@ -13,6 +13,8 @@ function buscarPrimos() {
 		document.getElementById('result').innerHTML = event.data;
 	}
 }
+
+
   </script>
 
 
