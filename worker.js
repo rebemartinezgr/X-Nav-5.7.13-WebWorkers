@@ -2,6 +2,7 @@
 
 function buscaprimos(valor){
  	var n = 1;
+	var cont = 0;
   primelist = "";
 	
   search: while (n<parseInt(valor)) {
@@ -11,13 +12,17 @@ function buscaprimos(valor){
         continue search;
     // found a prime!
     primelist += " " + n;
+	 cont++;
+		if (cont > 100000){
+			cont = 0;
+			self.postMessage(primelist);
+		}
 	}
 	return primelist;
 };
 
 
 self.onmessage = function(event) {
-	console.log("worker: He recibido " + event.data);
 	valor = event.data;
 	var primelist = buscaprimos(valor);
 	self.postMessage(primelist);

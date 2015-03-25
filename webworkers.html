@@ -9,7 +9,6 @@ function buscarPrimos() {
 	var worker = new Worker("worker.js");
 	worker.postMessage(document.getElementById("formulario").input.value);
 	worker.onmessage = function(event) {
-		console.log("Hemos recibido " + event.data);
 		document.getElementById('result').innerHTML = event.data;
 	}
 }
